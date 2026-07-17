@@ -19,7 +19,7 @@ log() {
 }
 
 check_root() {
-   if [ "$EUID" -ne 0 ]; then
+   if [[ "$EUID" -ne 0 ]]; then
       log "Permission denied - must run as root"
      exit 1
    fi
@@ -83,7 +83,7 @@ setup_directories() {
   PERMS=("750" "2755" "2770" "3775")
 
   for i in "${!DIRS[@]}"; do
-   if [ -d "${DIRS[$i]}" ]; then
+   if [[ -d "${DIRS[$i]}" ]]; then
     log "${DIRS[$i]} already exists"
     SKIPPED=$((SKIPPED+1))
    else
